@@ -5,23 +5,21 @@
  */
 package com.mycompany.apresentacaomockito;
 
-import java.util.ArrayList;
-import java.util.List;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
-import static org.mockito.Mockito.*;
-import org.mockito.Spy;
+import org.mockito.Mockito;
+import static org.mockito.Mockito.when;
 
 /**
  *
  * @author Tiago
  */
-public class TestsBasicos {
+public class TestFuncionario {
 
-    public TestsBasicos() {
+    public TestFuncionario() {
     }
 
     @BeforeClass
@@ -40,16 +38,15 @@ public class TestsBasicos {
     public void tearDown() {
     }
 
-    /**
-     * Test of main method, of class Main.
-     */
+    // TODO add test methods here.
+    // The methods must be annotated with annotation @Test. For example:
+    //
     @Test
-    public void testeBasico() {
-        ArrayList<String> lista = mock(ArrayList.class);        
-        when(lista.size()).thenReturn(100);
-        when(lista.add(anyString())).thenCallRealMethod();
-        lista.add("a");
-        System.out.println(lista.get(0));
+    public void testFuncionario()
+    {
+        FuncionarioDAOImpl dao = Mockito.mock(FuncionarioDAOImpl.class);        
+        when(dao.getFuncionario(3)).thenReturn("Joao Mock");
+        String mensagem = dao.getFuncionario(3);
+        System.out.println(mensagem);
     }
-
 }
